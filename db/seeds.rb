@@ -8,17 +8,33 @@
 
 require 'faker'
 
-puts 'Destroying old movies...'
-Movie.destroy_all
+# puts 'Destroying old movies...'
+# Movie.destroy_all
 
-puts 'Creating 5 fake movies...'
-5.times do
-  movie = Movie.new(
-    title: Faker::Movie.title,
-    overview: Faker::Movie.quote,
-    poster_url: 'https://picsum.photos/200',
-    rating: rand(0..5)
-  )
-  movie.save!
+# puts 'Creating 5 fake movies...'
+# 5.times do
+#   movie = Movie.new(
+#     title: Faker::Movie.title,
+#     overview: Faker::Movie.quote,
+#     poster_url: 'https://picsum.photos/200',
+#     rating: rand(0..5)
+#   )
+#   movie.save!
+# end
+# puts 'Finished!'
+
+require 'open-uri'
+require 'json'
+url = 'http://tmdb.lewagon.com/movie/top_rated'
+url_serialized = URI.open(url).read
+top_movies = JSON.parse(url_serialized)
+i = 0
+Movie.destroy_all
+while i < 20
+  puts 'Creating movie'
+  movie = Movie.new(title: top_movies['results'][i]['title'])
+  movie.save
+  puts movie.title
+  i += 1
 end
-puts 'Finished!'
+puts 'Finished'
