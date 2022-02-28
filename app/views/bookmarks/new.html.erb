@@ -1,4 +1,5 @@
-<%= simple_form_for @bookmark do |f| %>
+<%= simple_form_for [@list, @bookmark] do |f| %>
   <%= f.input :comment %>
+  <%# <%= f.association :movie, prompt: 'Select a movie', input_html: { data: { controller: 'select2' } %>
   <%= f.submit "Add movie", class: "btn btn-primary" %>
 <% end %>
