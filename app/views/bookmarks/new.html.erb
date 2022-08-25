@@ -1,6 +1,6 @@
 <div class="container">
   <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.association :movie, prompt: 'Select a movie', input_html: { class: 'select2' } %>
+    <%= f.association :movie, prompt: "Select a movie", input_html: {data: { controller: "tom-select"}} %>
     <%= f.input :comment %>
     <%= f.input :photo, as: :file %>
     <%= f.submit "Add movie", class: "btn btn-primary" %>

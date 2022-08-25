@@ -1,2 +1,3 @@
 <h1><%= @list.name %></h1>
 <%= link_to 'add a movie', new_list_bookmark_path(@list) %>
+<%= link_to 'Delete this list?', list_path(@list), method: :delete, data: { confirm: "Are you sure?" } %>
