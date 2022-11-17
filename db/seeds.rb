@@ -32,10 +32,11 @@ i = 0
 Movie.destroy_all
 while i < 20
   puts 'Creating movie'
+  base_poster_url = "https://image.tmdb.org/t/p/original"
   movie = Movie.new(
     title: top_movies['results'][i]['title'],
     overview: top_movies['results'][i]['overview'],
-    poster_url: top_movies['results'][i]['poster_path'],
+    poster_url: "#{base_poster_url}#{top_movies['results'][i]['poster_path']}",
     rating: top_movies['results'][i]['vote_average']
   )
   movie.save!
