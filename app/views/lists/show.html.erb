@@ -4,10 +4,13 @@
 <div class="cards">
   <% @list.bookmarks.each do |bookmark| %>
     <div class="movie-card">
-      <img src="<%= bookmark.movie.poster_url %>">
-      <p><%= bookmark.movie.title %></p>
+      <div class="movie-info">
+        <img src="<%= bookmark.movie.poster_url %>">
+        <p><%= bookmark.movie.title %></p>
+        <p><%= bookmark.movie.rating %>/10</p>
+        <p><%= bookmark.comment %></p>
+      </div>
       <p><%= bookmark.movie.overview %></p>
-      <p><%= bookmark.movie.rating %>/10</p>
     </div>
   <% end %>
 </div>

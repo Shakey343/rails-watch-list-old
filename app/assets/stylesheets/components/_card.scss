@@ -21,9 +21,14 @@
 }
 
 .movie-card {
-  width: 200px;
-  img {
-    width: 200px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  display: flex;
+  .movie-info {
+    text-decoration: underline;
+    img {
+      width: 200px;
+      height: 300px;
+    }
   }
 }
 
@@ -31,6 +36,7 @@
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
     grid-template-columns: 1fr;
+    color: $yellow;
   }
 }
 
